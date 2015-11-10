@@ -2,7 +2,7 @@
 
 $query = $_GET['q'];
 
-$str = file_get_contents('https://s3-us-west-2.amazonaws.com/datafilesym/data.json');
+$str = file_get_contents('https://s3-us-west-2.amazonaws.com/symptomsdata/newdata.json');
 
 $json = json_decode($str, true);
 
@@ -15,9 +15,10 @@ foreach ($json as $key => $value) {
     		foreach ($y as $ab => $abval ) {
     			if($ab == $query && $abval > 5) {
     				echo $y["title"];
+                    echo "<br/>";
     			}
     		}
-    		echo "<br>";
+    		
     	}
     }
   }
